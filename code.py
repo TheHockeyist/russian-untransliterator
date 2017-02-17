@@ -39,4 +39,20 @@ str.replace(""", "ъ")
 
 # Check the Cyrillic transliteration for errors that break Russian orthography rules and fix them, e.g. цх ---> ч or йу ---> ю.
 
-#Print final result in copy-pasteable format.
+str.replace("ыы", "ый") # Rather safe as -ыы never occurs at the end of words.
+str.replace("йу", "ю")
+str.replace("йа", "я")
+str.replace("ыу", "ю")
+str.replace("ыа", "я")
+# йе and йо actually occur at the start a few words, e.g. Йемен, йогурт, and in a few words like район or майор so that needs to be accounted for.
+str.replace("цх", "ч")
+str.replace("сх", "ш")
+str.replace("зх", "ж")
+str.replace("шч", "щ")
+# Шч cannot occur in Russian orthography.
+str.replace("ъйо", "ъё")
+str.replace("ьйо", "ьё")
+str.replace("ъйе", "ъе")
+str.replace("ьйе", "ье")
+
+# Print final result in copy-pasteable format.
