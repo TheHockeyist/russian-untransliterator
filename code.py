@@ -34,8 +34,8 @@ str.replace("x", "х")
 str.replace("y", "ы")
 str.replace("z", "з")
 str.replace("ž", "ж")
-str.replace("'", "ь")
-str.replace(""", "ъ")
+str.replace("\'", "ь")
+str.replace("\"", "ъ")
 
 # Check the Cyrillic transliteration for errors that break Russian orthography rules and fix them, e.g. цх ---> ч or йу ---> ю.
 
