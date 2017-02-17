@@ -1,7 +1,6 @@
 # Ask user for string to be transliterated to Cyrillic, including soft and hard signs.
 
-latin_string = raw_input("What is the Latin text you want transliterated to Cyrillic? Include hard and soft signs by using apostrophes and quotation marks respectively.")
-cyrillic_string = raw_input
+latin_string = input("What is the Latin text you want transliterated to Cyrillic? Include hard and soft signs by using apostrophes and quotation marks respectively. >")
 
 # Mechanism to search the string and replace letters with Cyrillic equivalents, e.g. d to д. For unclear situations (e.g. deciding between и and й), it will either make an educated guess based on the context or ask the user what Cyrillic letter was actually meant.
 
@@ -101,5 +100,3 @@ latin_string.replace("цх", "ч")
 latin_string.replace("сх", "ш")
 latin_string.replace("зх", "ж")
 latin_string.replace("шч", "щ") # Шч cannot occur in Russian orthography.
-
-# Print final result in copy-pasteable format.
