@@ -1,6 +1,6 @@
 # Ask user for string to be transliterated to Cyrillic, including soft and hard signs.
 
-latin_string = raw_input("Ask user for something.")
+latin_string = raw_input("What is the Latin text you want transliterated to Cyrillic? Include hard and soft signs by using apostrophes and quotation marks respectively.")
 cyrillic_string = raw_input
 
 # Mechanism to search the string and replace letters with Cyrillic equivalents, e.g. d to д. For unclear situations (e.g. deciding between и and й), it will either make an educated guess based on the context or ask the user what Cyrillic letter was actually meant.
@@ -49,10 +49,16 @@ str.replace("йу", "ю")
 str.replace("йа", "я")
 str.replace("ыу", "ю")
 str.replace("ыа", "я")
-# йе and йо actually occur at the start a few words, e.g. Йемен, йогурт, and in a few words like район or майор so that needs to be accounted for.
+
+# йо actually occurs at the start a few words, e.g. йогурт, and in a few words like район or майор so that needs to be accounted for.
 
 str.replace("йе", "е")
-# Code to check for words like Йемен, Йеллоунайф, etc. and correct them.
+
+# Corrects spelling of words like Йемен and Йеллоунайф.
+
+str.replace("емен", "йемен")
+str.replace("еллоу", "йеллоу")
+
 str.replace("ые", "е") # Only needs to activate at the beginning of words. -ые is actually quite a common grammatical ending. Here, it could be easily messed up by accident.
 
 str.replace("цх", "ч")
@@ -62,7 +68,5 @@ str.replace("шч", "щ")
 # Шч cannot occur in Russian orthography.
 str.replace("ъйо", "ъё")
 str.replace("ьйо", "ьё")
-str.replace("ъйе", "ъе")
-str.replace("ьйе", "ье")
 
 # Print final result in copy-pasteable format.
