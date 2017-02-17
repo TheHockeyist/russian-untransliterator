@@ -39,6 +39,11 @@ str.replace(""", "ъ")
 
 # Check the Cyrillic transliteration for errors that break Russian orthography rules and fix them, e.g. цх ---> ч or йу ---> ю.
 
+str.replace("аы", "ай")
+str.replace("еы", "ей")
+str.replace("иы", "ий")
+str.replace("оы", "ой")
+str.replace("уы", "уй")
 str.replace("ыы", "ый") # Rather safe as -ыы never occurs at the end of words.
 str.replace("йу", "ю")
 str.replace("йа", "я")
