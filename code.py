@@ -92,9 +92,6 @@ str.replace("ёэ", "йоэ") # Probably part of a name, since ёэ can never oc
 str.replace("цх", "ч")
 str.replace("сх", "ш")
 str.replace("зх", "ж")
-str.replace("шч", "щ")
-# Шч cannot occur in Russian orthography.
-str.replace("ъйо", "ъё")
-str.replace("ьйо", "ьё")
+str.replace("шч", "щ") # Шч cannot occur in Russian orthography.
 
 # Print final result in copy-pasteable format.
