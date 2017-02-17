@@ -52,6 +52,8 @@ str.replace("ыа", "я")
 
 # йо actually occurs at the start a few words, e.g. йогурт, and in a few words like район or майор so that needs to be accounted for.
 
+str.replace("ые", "е") # Only needs to activate at the beginning of words. -ые is actually quite a common grammatical ending. Here, it could be easily messed up by accident.
+
 str.replace("йе", "е")
 
 # Corrects spelling of words like Йемен and Йеллоунайф.
@@ -59,7 +61,33 @@ str.replace("йе", "е")
 str.replace("емен", "йемен")
 str.replace("еллоу", "йеллоу")
 
-str.replace("ые", "е") # Only needs to activate at the beginning of words. -ые is actually quite a common grammatical ending. Here, it could be easily messed up by accident.
+str.replace("ыо", "йо")
+str.replace("йо", "ё")
+
+# Corrects spelling of words when э should be used instead of е.
+
+# Corrects spelling of words like район, майор, and cases with й as the first letter.
+
+str.replace("раён", "район")
+str.replace("маёр", "майор")
+# More instances of -йо- in a word here
+
+str.replace("ёa", "йоa") # At the beginning of words.
+str.replace("ёг", "йог") # At the beginning of words, e.g. йогa, йогурт. The only exceptions are minor geographical names.
+str.replace("ёд", "йод") # As a word, not as a part of a word. мёд is an actual word, for example.
+str.replace("ёжеф", "йожеф") # Name.
+str.replace("ёзеф", "йозеф") # Name.
+str.replace("ёрг", "йорг") # Part of some common names. Some words start with ёрг, but they are all minor geographical names.
+str.replace("ёрдан", "йордан") # Name.
+str.replace("ёрк", "йорк") # Alone, e.g. Нью Йорк. Used in a lot of words, e.g. шестёрка.
+str.replace("ёсеф", "йосеф") # Name.
+str.replace("ёсил", "йосил") # Name. Might be used as a suffix in a few words, but I'm not sure.
+str.replace("ёта", "йота") # Name of the Greek letter iota. Also common in words.
+str.replace("ёун", "йоун") # Name.
+str.replace("ёхан", "йохан") # Name.
+str.replace("ёшкар", "йошкар") # Part of a name of a city in Russia, Йошкар-Ола.
+str.replace("ёшуа", "йошуа") # Name.
+str.replace("ёэ", "йоэ") # Probably part of a name, since ёэ can never occur.
 
 str.replace("цх", "ч")
 str.replace("сх", "ш")
