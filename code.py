@@ -50,6 +50,11 @@ str.replace("йа", "я")
 str.replace("ыу", "ю")
 str.replace("ыа", "я")
 # йе and йо actually occur at the start a few words, e.g. Йемен, йогурт, and in a few words like район or майор so that needs to be accounted for.
+
+str.replace("йе", "е")
+# Code to check for words like Йемен, Йеллоунайф, etc. and correct them.
+str.replace("ые", "е") # Only needs to activate at the beginning of words. -ые is actually quite a common grammatical ending. Here, it could be easily messed up by accident.
+
 str.replace("цх", "ч")
 str.replace("сх", "ш")
 str.replace("зх", "ж")
