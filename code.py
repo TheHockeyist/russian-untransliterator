@@ -76,14 +76,19 @@ latin_string.replace("йо", "ё")
 
 # Corrects spelling of words like район, майор, and cases with йо as the first letter.
 
-latin_string.replace("раён", "район")
-latin_string.replace("маёр", "майор")
-latin_string.replace("коёт", "койот")
 latin_string.replace("аёва", "айова") # Geographical name.
+latin_string.replace("баёнет", "байонет")
 latin_string.replace("ваёминг", "вайоминг") # Geographical name.
-
-Айова, Вайоминг, Нью-Йорк, Йоханнесбург
-
+latin_string.replace("ваёл", "вайол") # E.g. вайола
+latin_string.replace("заён", "зайон")
+latin_string.replace("коёт", "койот")
+latin_string.replace("маёнез", "майонез")
+latin_string.replace("маёр", "майор")
+latin_string.replace("маётта", "майотта") # Geographical name.
+latin_string.replace("огаё", "огайо") # Geographical name.
+latin_string.replace("ораён", "орайон")
+latin_string.replace("паёл", "пайол")
+latin_string.replace("раён", "район")
 
 # More instances of -йо- in a word here
 
