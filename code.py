@@ -114,3 +114,5 @@ cyrillic_string = cyrillic_string.replace("цх", "ч")
 cyrillic_string = cyrillic_string.replace("сх", "ш")
 cyrillic_string = cyrillic_string.replace("зх", "ж")
 cyrillic_string = cyrillic_string.replace("шч", "щ") # Шч cannot occur in Russian orthography.
+
+print("\"{}\" would be transliterated as:\n{}".format(latin_string, cyrillic_string))
