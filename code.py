@@ -74,7 +74,7 @@ latin_string.replace("йо", "ё")
 
 # Corrects spelling of words when э should be used instead of е.
 
-# Corrects spelling of words like район, майор, and cases with йо as the first letter.
+# Corrects spelling of words like район, майор, and cases with йо.
 
 latin_string.replace("аёва", "айова") # Geographical name.
 latin_string.replace("баёнет", "байонет")
@@ -89,6 +89,7 @@ latin_string.replace("огаё", "огайо") # Geographical name.
 latin_string.replace("ораён", "орайон")
 latin_string.replace("паёл", "пайол")
 latin_string.replace("раён", "район")
+latin_string.replace("тоёта", "тойота")
 
 # More instances of -йо- in a word here
 
