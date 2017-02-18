@@ -78,6 +78,7 @@ latin_string.replace("йо", "ё")
 
 latin_string.replace("раён", "район")
 latin_string.replace("маёр", "майор")
+latin_string.replace("коёт", "койот")
 # More instances of -йо- in a word here
 
 latin_string.replace("ёг", "йог") # At the beginning of words, e.g. йогa, йогурт. The only exceptions are minor geographical names.
