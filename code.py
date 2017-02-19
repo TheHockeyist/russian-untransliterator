@@ -1,9 +1,16 @@
+import re
+
 # Ask user for string to be transliterated to Cyrillic, including soft and hard signs.
 
 latin_string = input("What is the Latin text you want transliterated to Cyrillic? Include hard and soft signs by using apostrophes and quotation marks respectively. >")
 
 # Mechanism to search the string and replace letters with Cyrillic equivalents, e.g. d to д. For unclear situations (e.g. deciding between и and й), it will either make an educated guess based on the context or ask the user what Cyrillic letter was actually meant.
 
+if re.search("j", latin_string):
+    uses_j = True
+else:
+    uses_j = False
+    
 cyrillic_string = latin_string
 cyrillic_string = cyrillic_string.replace("a", "а")
 cyrillic_string = cyrillic_string.replace("b", "б")
