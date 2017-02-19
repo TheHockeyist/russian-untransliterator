@@ -7,9 +7,9 @@ latin_string = input("What is the Latin text you want transliterated to Cyrillic
 # Mechanism to search the string and replace letters with Cyrillic equivalents, e.g. d to д. For unclear situations (e.g. deciding between и and й), it will either make an educated guess based on the context or ask the user what Cyrillic letter was actually meant.
 
 if re.search("j", latin_string):
-    uses_j = True
+    uses_j = True # Sign that i = и only
 else:
-    uses_j = False
+    uses_j = False # Sign that i probably also = й
     
 cyrillic_string = latin_string
 cyrillic_string = cyrillic_string.replace("a", "а")
