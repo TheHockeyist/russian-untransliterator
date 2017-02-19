@@ -75,6 +75,9 @@ cyrillic_string = cyrillic_string.replace("йо", "ё")
 
 # Corrects spelling of words when э should be used instead of е.
 
+cyrillic_string = cyrillic_string.replace("ето", "это")
+cyrillic_string = cyrillic_string.replace("ети", "эти")
+
 # Corrects spelling of words like район, майор, and cases with йо.
 
 cyrillic_string = cyrillic_string.replace("аёва", "айова") # Geographical name.
