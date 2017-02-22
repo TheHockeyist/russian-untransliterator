@@ -21,8 +21,6 @@ cyrillic_string = cyrillic_string.replace("е", "е")
 cyrillic_string = cyrillic_string.replace("f", "ф")
 cyrillic_string = cyrillic_string.replace("g", "г")
 cyrillic_string = cyrillic_string.replace("h", "х")
-cyrillic_string = cyrillic_string.replace("i", "и")
-cyrillic_string = cyrillic_string.replace("j", "й")
 cyrillic_string = cyrillic_string.replace("k", "к")
 cyrillic_string = cyrillic_string.replace("l", "л")
 cyrillic_string = cyrillic_string.replace("m", "м")
@@ -43,6 +41,15 @@ cyrillic_string = cyrillic_string.replace("z", "з")
 cyrillic_string = cyrillic_string.replace("ž", "ж")
 cyrillic_string = cyrillic_string.replace("\'", "ь")
 cyrillic_string = cyrillic_string.replace("\"", "ъ")
+
+# Properly replace J
+if uses_j == True:
+    cyrillic_string = cyrillic_string.replace("i", "и")
+    cyrillic_string = cyrillic_string.replace("j", "й")
+else:
+    # For now, just replace it with и until we get the proper code in
+    cyrillic_string = cyrillic_string.replace("i", "и")
+    
 
 # Check the Cyrillic transliteration for errors that break Russian orthography rules and fix them, e.g. цх ---> ч or йу ---> ю.
 
