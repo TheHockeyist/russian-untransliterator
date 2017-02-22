@@ -66,7 +66,7 @@ cyrillic_string = re.sub("ыа", "я", cyrillic_string)
 
 # йо actually occurs at the start a few words, e.g. йогурт, and in a few words like район or майор so that needs to be accounted for.
 
-cyrillic_string = re.sub("ые", "е", cyrillic_string) # Only needs to activate at the beginning of words. -ые is actually quite a common grammatical ending. Here, it could be easily messed up by accident.
+cyrillic_string = re.sub("^ые", "е", cyrillic_string) # Only needs to activate at the beginning of words. -ые is actually quite a common grammatical ending.
 
 cyrillic_string = re.sub("йе", "е", cyrillic_string)
 
@@ -89,8 +89,8 @@ cyrillic_string = re.sub("йо", "ё", cyrillic_string)
 
 # Corrects spelling of words when э should be used instead of е.
 
-cyrillic_string = re.sub(" ето", " это", cyrillic_string) # What about words like лето?
-cyrillic_string = re.sub(" ети", " эти", cyrillic_string) # Same thing here.
+cyrillic_string = re.sub("^ето", "это", cyrillic_string) # Words like лето mess this up, so it's only changed at the beginning.
+cyrillic_string = re.sub("^ети", "эти", cyrillic_string) # Same thing here.
 cyrillic_string = re.sub("експерт", "эксперт", cyrillic_string)
 cyrillic_string = re.sub("електричест", "электричест", cyrillic_string)
 
