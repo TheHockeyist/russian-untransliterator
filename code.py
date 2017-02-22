@@ -137,7 +137,8 @@ cyrillic_string = re.sub("сх", "ш", cyrillic_string)
 cyrillic_string = re.sub("зх", "ж", cyrillic_string)
 cyrillic_string = re.sub("шч", "щ", cyrillic_string) # Шч cannot occur in Russian orthography.
 
-if uses_j = False
+if uses_j == False:
     # Ask user in vowel + и combinations which ones are really й.
+    pass # Placeholder
 
 print("\"{}\" would be transliterated as:\n{}".format(latin_string, cyrillic_string))
