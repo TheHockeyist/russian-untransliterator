@@ -89,8 +89,8 @@ cyrillic_string = re.sub("йо", "ё", cyrillic_string)
 
 # Corrects spelling of words when э should be used instead of е.
 
-cyrillic_string = re.sub("^ето", "это", cyrillic_string) # Words like лето mess this up, so it's only changed at the beginning.
-cyrillic_string = re.sub("^ети", "эти", cyrillic_string) # Same thing here.
+cyrillic_string = re.sub("(^| )ето", "это", cyrillic_string) # Words like лето mess this up, so it's only changed at the beginning.
+cyrillic_string = re.sub("(^| )ети", "эти", cyrillic_string) # Same thing here.
 cyrillic_string = re.sub("експерт", "эксперт", cyrillic_string)
 cyrillic_string = re.sub("електричест", "электричест", cyrillic_string)
 
