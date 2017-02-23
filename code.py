@@ -55,6 +55,11 @@ else:
 
 # Check the Cyrillic transliteration for errors that break Russian orthography rules and fix them, e.g. цх ---> ч or йу ---> ю.
 
+cyrillic_string = re.sub("цх", "ч", cyrillic_string)
+cyrillic_string = re.sub("сх", "ш", cyrillic_string)
+cyrillic_string = re.sub("зх", "ж", cyrillic_string)
+cyrillic_string = re.sub("шч", "щ", cyrillic_string) # Шч cannot occur in Russian orthography.
+
 cyrillic_string = re.sub("аы", "ай", cyrillic_string)
 cyrillic_string = re.sub("еы", "ей", cyrillic_string)
 cyrillic_string = re.sub("иы", "ий", cyrillic_string)
@@ -131,11 +136,6 @@ cyrillic_string = re.sub("ёхан", "йохан", cyrillic_string) # Name.
 cyrillic_string = re.sub("ёшкар", "йошкар", cyrillic_string) # Part of a name of a city in Russia, Йошкар-Ола.
 cyrillic_string = re.sub("ёшуа", "йошуа", cyrillic_string) # Name.
 cyrillic_string = re.sub("ёэ", "йоэ", cyrillic_string) # Probably part of a name, since ёэ can never occur.
-
-cyrillic_string = re.sub("цх", "ч", cyrillic_string)
-cyrillic_string = re.sub("сх", "ш", cyrillic_string)
-cyrillic_string = re.sub("зх", "ж", cyrillic_string)
-cyrillic_string = re.sub("шч", "щ", cyrillic_string) # Шч cannot occur in Russian orthography.
 
 if uses_j == False:
     # Ask user in vowel + и combinations which ones are really й.
