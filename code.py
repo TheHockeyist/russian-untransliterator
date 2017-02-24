@@ -56,6 +56,7 @@ else:
 # Check the Cyrillic transliteration for errors that break Russian orthography rules and fix them, e.g. цх ---> ч or йу ---> ю.
 
 cyrillic_string = re.sub("цх", "ч", cyrillic_string)
+cyrillic_string = re.sub("кх", "х", cyrillic_string)
 cyrillic_string = re.sub("сх", "ш", cyrillic_string)
 cyrillic_string = re.sub("зх", "ж", cyrillic_string)
 cyrillic_string = re.sub("шч", "щ", cyrillic_string) # Шч cannot occur in Russian orthography.
