@@ -102,6 +102,7 @@ cyrillic_string = re.sub("(^| )ети", "эти", cyrillic_string) # Same thing 
 cyrillic_string = re.sub("експерт", "эксперт", cyrillic_string)
 cyrillic_string = re.sub("електричест", "электричест", cyrillic_string)
 cyrillic_string = re.sub("енерг", "энерг", cyrillic_string) # E.g. энергия
+cyrillic_string = re.sub("аеро", "аэро", cyrillic_string) # Prefix.
 
 
 # Corrects spelling of words like район, майор, and cases with йо.
