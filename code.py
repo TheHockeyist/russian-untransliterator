@@ -95,10 +95,13 @@ cyrillic_string = re.sub("есс", "йесс", cyrillic_string) # As part of a n
 cyrillic_string = re.sub("ыо", "йо", cyrillic_string)
 cyrillic_string = re.sub("йо", "ё", cyrillic_string)
 
+# э will never appear after ь/ъ. The correct letter is "e".
+cyrillic_string = re.sub("([ьъ])э", "\\1e", cyrillic_string)
+
 # Corrects spelling of words when э should be used instead of е.
 
-cyrillic_string = re.sub("(^| )ето", "это", cyrillic_string) # Words like лето mess this up, so it's only changed at the beginning.
-cyrillic_string = re.sub("(^| )ети", "эти", cyrillic_string) # Same thing here.
+cyrillic_string = re.sub("(^| )ето", "\\1это", cyrillic_string) # Words like лето mess this up, so it's only changed at the beginning.
+cyrillic_string = re.sub("(^| )ети", "\\1эти", cyrillic_string) # Same thing here.
 cyrillic_string = re.sub("експерт", "эксперт", cyrillic_string)
 cyrillic_string = re.sub("електричест", "электричест", cyrillic_string)
 cyrillic_string = re.sub("енерг", "энерг", cyrillic_string) # E.g. энергия
