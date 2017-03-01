@@ -103,10 +103,11 @@ cyrillic_string = re.sub("([ьъ])э", "\\1e", cyrillic_string)
 cyrillic_string = re.sub("(^| )ето", "\\1это", cyrillic_string) # Words like лето mess this up, so it's only changed at the beginning.
 cyrillic_string = re.sub("(^| )ети", "\\1эти", cyrillic_string) # Same thing here.
 cyrillic_string = re.sub("експерт", "эксперт", cyrillic_string)
-cyrillic_string = re.sub("електричест", "электричест", cyrillic_string)
+cyrillic_string = re.sub("електр", "электр", cyrillic_string) # e.g. электричество
 cyrillic_string = re.sub("енерг", "энерг", cyrillic_string) # E.g. энергия
 cyrillic_string = re.sub("аеро", "аэро", cyrillic_string) # Prefix.
 cyrillic_string = re.sub("етаж", "этаж", cyrillic_string)
+cyrillic_string = re.sub("економи", "экономи", cyrillic_string)
 
 
 # Corrects spelling of words like район, майор, and cases with йо.
