@@ -99,6 +99,7 @@ cyrillic_string = re.sub("йо", "ё", cyrillic_string)
 
 cyrillic_string = re.sub("(^| )ето", "\\1это", cyrillic_string) # Words like лето mess this up, so it's only changed at the beginning.
 cyrillic_string = re.sub("(^| )ети", "\\1эти", cyrillic_string) # Same thing here.
+cyrillic_string = re.sub("еква", "эква", cyrillic_string) # e.g. экватор
 cyrillic_string = re.sub("експерт", "эксперт", cyrillic_string)
 cyrillic_string = re.sub("електр", "электр", cyrillic_string) # e.g. электричество
 cyrillic_string = re.sub("елемент", "элемент", cyrillic_string)
