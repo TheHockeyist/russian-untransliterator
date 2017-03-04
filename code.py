@@ -150,6 +150,9 @@ cyrillic_string = re.sub("ёшкар", "йошкар", cyrillic_string) # Part o
 cyrillic_string = re.sub("ёшуа", "йошуа", cyrillic_string) # Name.
 cyrillic_string = re.sub("ёэ", "йоэ", cyrillic_string) # Probably part of a name, since ёэ can never occur.
 
+cyrillic_string = re.sub("ево", "его", cyrillic_string) # Only needs to activate at the end of words.
+cyrillic_string = re.sub("ово", "ого", cyrillic_string) # Only needs to activate at the end of words.
+
 if uses_j == False:
     # Ask user in vowel + и combinations which ones are really й.
     pass # Placeholder
