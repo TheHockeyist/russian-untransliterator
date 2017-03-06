@@ -101,6 +101,7 @@ cyrillic_string = re.sub("(^| )ето", "\\1это", cyrillic_string) # Words li
 cyrillic_string = re.sub("(^| )ети", "\\1эти", cyrillic_string) # Same thing here.
 cyrillic_string = re.sub("еква", "эква", cyrillic_string) # e.g. экватор
 cyrillic_string = re.sub("експерт", "эксперт", cyrillic_string)
+cyrillic_string = re.sub("екзамен", "экзамен", cyrillic_string)
 cyrillic_string = re.sub("електр", "электр", cyrillic_string) # e.g. электричество
 cyrillic_string = re.sub("елемент", "элемент", cyrillic_string)
 cyrillic_string = re.sub("енерг", "энерг", cyrillic_string) # E.g. энергия
