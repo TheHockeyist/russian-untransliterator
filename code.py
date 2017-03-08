@@ -108,6 +108,7 @@ cyrillic_string = re.sub("енерг", "энерг", cyrillic_string) # E.g. э�
 cyrillic_string = re.sub("ентроп", "энтроп", cyrillic_string) # E.g. энтропия
 cyrillic_string = re.sub("аеро", "аэро", cyrillic_string) # Prefix.
 cyrillic_string = re.sub("естони", "эстони", cyrillic_string) # E.g. Эстония
+cyrillic_string = re.sub("ефиопи", "эфиопи", cyrillic_string) # E.g. Эфиопия
 cyrillic_string = re.sub("етаж", "этаж", cyrillic_string)
 cyrillic_string = re.sub("економи", "экономи", cyrillic_string)
 cyrillic_string = re.sub("ерби", "эрби", cyrillic_string) # e.g. эрбий. Shouldn't activate for тербий, etc. though.
