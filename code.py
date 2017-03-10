@@ -99,6 +99,7 @@ cyrillic_string = re.sub("йо", "ё", cyrillic_string)
 
 cyrillic_string = re.sub("(^| )ето", "\\1это", cyrillic_string) # Words like лето mess this up, so it's only changed at the beginning.
 cyrillic_string = re.sub("(^| )ети", "\\1эти", cyrillic_string) # Same thing here.
+cyrillic_string = re.sub("ейнштейн", "эйнштейн", cyrillic_string) # Name.
 cyrillic_string = re.sub("еква", "эква", cyrillic_string) # e.g. экватор
 cyrillic_string = re.sub("експерт", "эксперт", cyrillic_string)
 cyrillic_string = re.sub("екзамен", "экзамен", cyrillic_string)
@@ -111,7 +112,7 @@ cyrillic_string = re.sub("естони", "эстони", cyrillic_string) # E.g.
 cyrillic_string = re.sub("ефиопи", "эфиопи", cyrillic_string) # E.g. Эфиопия
 cyrillic_string = re.sub("етаж", "этаж", cyrillic_string)
 cyrillic_string = re.sub("економи", "экономи", cyrillic_string)
-cyrillic_string = re.sub("ерби", "эрби", cyrillic_string) # e.g. эрбий. Shouldn't activate for тербий, etc. though.
+cyrillic_string = re.sub("(^| )ерби", "\\1эрби", cyrillic_string) # e.g. эрбий.
 cyrillic_string = re.sub("еритр", "эритр", cyrillic_string) # e.g. Эритрея
 cyrillic_string = re.sub("етимология", "этимология", cyrillic_string)
 cyrillic_string = re.sub("реп", "рэп", cyrillic_string)
