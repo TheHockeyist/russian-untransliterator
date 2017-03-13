@@ -103,6 +103,7 @@ cyrillic_string = re.sub("ейнштейн", "эйнштейн", cyrillic_string
 cyrillic_string = re.sub("еква", "эква", cyrillic_string) # e.g. экватор
 cyrillic_string = re.sub("експерт", "эксперт", cyrillic_string)
 cyrillic_string = re.sub("екзамен", "экзамен", cyrillic_string)
+cyrillic_string = re.sub("елаёпласт", "элайопласт", cyrillic_string)
 cyrillic_string = re.sub("електр", "электр", cyrillic_string) # e.g. электричество
 cyrillic_string = re.sub("елемент", "элемент", cyrillic_string)
 cyrillic_string = re.sub("енерг", "энерг", cyrillic_string) # E.g. энергия
