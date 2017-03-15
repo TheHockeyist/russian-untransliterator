@@ -143,13 +143,13 @@ cyrillic_string = re.sub("тоёта", "тойота", cyrillic_string)
 
 # More instances of -йо- in a word here
 
-cyrillic_string = re.sub("ёг", "йог", cyrillic_string) # At the beginning of words, e.g. йогa, йогурт. The only exceptions are minor geographical names.
-cyrillic_string = re.sub("ёд", "йод", cyrillic_string) # As a word, not as a part of a word. мёд is an actual word, for example.
+cyrillic_string = re.sub("(^| )ёг", "\\1йог", cyrillic_string) # At the beginning of words, e.g. йогa, йогурт. The only exceptions are minor geographical names.
+cyrillic_string = re.sub("(^| )ёд", "\\1йод", cyrillic_string) # As a word, not as a part of a word. мёд is an actual word, for example.
 cyrillic_string = re.sub("ёжеф", "йожеф", cyrillic_string) # Name.
 cyrillic_string = re.sub("ёзеф", "йозеф", cyrillic_string) # Name.
 cyrillic_string = re.sub("ёрг", "йорг", cyrillic_string) # Part of some common names. Some words start with ёрг, but they are all minor geographical names.
 cyrillic_string = re.sub("ёрдан", "йордан", cyrillic_string) # Name.
-cyrillic_string = re.sub("ёрк", "йорк", cyrillic_string) # Alone, e.g. Нью Йорк. Used in a lot of words, e.g. шестёрка.
+cyrillic_string = re.sub("(^| )ёрк", "\\1йорк", cyrillic_string) # Alone, e.g. Нью Йорк. Used in a lot of words, e.g. шестёрка.
 cyrillic_string = re.sub("ёсеф", "йосеф", cyrillic_string) # Name.
 cyrillic_string = re.sub("ёсиф", "йосиф", cyrillic_string) # Name.
 cyrillic_string = re.sub("ёта", "йота", cyrillic_string) # Name of the Greek letter iota. Also common in words.
