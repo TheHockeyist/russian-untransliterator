@@ -104,6 +104,7 @@ cyrillic_string = re.sub("(^| )ети", "\\1эти", cyrillic_string) # Same thi
 cyrillic_string = re.sub("ейнштейн", "эйнштейн", cyrillic_string) # Name.
 cyrillic_string = re.sub("еква", "эква", cyrillic_string) # e.g. экватор
 cyrillic_string = re.sub("експ", "эксп", cyrillic_string) # e.g. эксперт
+cyrillic_string = re.sub("(^| )екст", "\\1экст", cyrillic_string) # e.g. экстремизм
 cyrillic_string = re.sub("екзамен", "экзамен", cyrillic_string)
 cyrillic_string = re.sub("елаёпласт", "элайопласт", cyrillic_string)
 cyrillic_string = re.sub("електр", "электр", cyrillic_string) # e.g. электричество
