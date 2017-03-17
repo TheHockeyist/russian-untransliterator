@@ -119,6 +119,7 @@ cyrillic_string = re.sub("економи", "экономи", cyrillic_string)
 cyrillic_string = re.sub("(^| )ерби", "\\1эрби", cyrillic_string) # e.g. эрбий.
 cyrillic_string = re.sub("еритр", "эритр", cyrillic_string) # e.g. Эритрея
 cyrillic_string = re.sub("етимология", "этимология", cyrillic_string)
+cyrillic_string = re.sub("едуард", "эдуард", cyrillic_string) # Name.
 cyrillic_string = re.sub("реп", "рэп", cyrillic_string)
 
 # э will never appear after ь/ъ. The correct letter is "e".
