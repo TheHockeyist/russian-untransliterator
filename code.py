@@ -2,7 +2,7 @@ import re
 
 # Ask user for string to be transliterated to Cyrillic, including soft and hard signs.
 
-latin_string = input("What is the Latin text you want transliterated to Cyrillic? Include hard and soft signs by using apostrophes and quotation marks respectively. >")
+latin_string = input("What is the Latin text you want transliterated to Cyrillic? Include hard and soft signs by using apostrophes and quotation marks respectively.\n> ")
 
 latin_string = latin_string.lower() # If the Latin string has any capitals, conver them to lowercase
 
