@@ -149,8 +149,6 @@ corrections = [
 for find, replace in corrections:
     cyrillic_string = re.sub(find, replace, cyrillic_string)
 
-if uses_j == False:
-    # Ask user in vowel + и combinations which ones are really й.
-    pass # Placeholder
+# TODO: Check if any i/j conflicts need to be resolved
 
 print("\"{}\" would be transliterated as:\n{}".format(latin_string, cyrillic_string))
