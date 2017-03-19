@@ -151,8 +151,7 @@ corrections = [
     ("ёшкар", "йошкар"), # Part of a name of a city in Russia, Йошкар-Ола.
     ("ёшуа", "йошуа"), # Name.
     ("ёэ", "йоэ"), # Probably part of a name, since ёэ can never occur.
-    ("ево", "его"), # Only needs to activate at the end of words.
-    ("ово", "ого"), # Only needs to activate at the end of words.
+    ("([еo])во( |$)", "\\1го\\2"), # Only needs to activate at the end of words.
     ]
 
 for find, replace in corrections:
