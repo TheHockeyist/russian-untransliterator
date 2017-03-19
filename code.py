@@ -14,36 +14,42 @@ else:
     uses_j = False # Sign that i probably also = й
     
 cyrillic_string = latin_string
-cyrillic_string = re.sub("a", "а", cyrillic_string)
-cyrillic_string = re.sub("b", "б", cyrillic_string)
-cyrillic_string = re.sub("c", "ц", cyrillic_string)
-cyrillic_string = re.sub("č", "ч", cyrillic_string)
-cyrillic_string = re.sub("d", "д", cyrillic_string)
-cyrillic_string = re.sub("е", "е", cyrillic_string)
-cyrillic_string = re.sub("f", "ф", cyrillic_string)
-cyrillic_string = re.sub("g", "г", cyrillic_string)
-cyrillic_string = re.sub("h", "х", cyrillic_string)
-cyrillic_string = re.sub("k", "к", cyrillic_string)
-cyrillic_string = re.sub("l", "л", cyrillic_string)
-cyrillic_string = re.sub("m", "м", cyrillic_string)
-cyrillic_string = re.sub("n", "н", cyrillic_string)
-cyrillic_string = re.sub("o", "о", cyrillic_string)
-cyrillic_string = re.sub("p", "п", cyrillic_string)
-cyrillic_string = re.sub("q", "я", cyrillic_string)
-cyrillic_string = re.sub("r", "р", cyrillic_string)
-cyrillic_string = re.sub("s", "с", cyrillic_string)
-cyrillic_string = re.sub("š", "ш", cyrillic_string)
-cyrillic_string = re.sub("t", "т", cyrillic_string)
-cyrillic_string = re.sub("u", "у", cyrillic_string)
-cyrillic_string = re.sub("v", "в", cyrillic_string)
-cyrillic_string = re.sub("w", "в", cyrillic_string)
-cyrillic_string = re.sub("x", "х", cyrillic_string)
-cyrillic_string = re.sub("y", "ы", cyrillic_string)
-cyrillic_string = re.sub("z", "з", cyrillic_string)
-cyrillic_string = re.sub("ž", "ж", cyrillic_string)
-cyrillic_string = re.sub("\'", "ь", cyrillic_string)
-cyrillic_string = re.sub("\"", "ъ", cyrillic_string)
 
+substitutions = [
+    ("a", "а"),
+    ("b", "б"),
+    ("c", "ц"),
+    ("č", "ч"),
+    ("d", "д"),
+    ("е", "е"),
+    ("f", "ф"),
+    ("g", "г"),
+    ("h", "х"),
+    ("k", "к"),
+    ("l", "л"),
+    ("m", "м"),
+    ("n", "н"),
+    ("o", "о"),
+    ("p", "п"),
+    ("q", "я"),
+    ("r", "р"),
+    ("s", "с"),
+    ("š", "ш"),
+    ("t", "т"),
+    ("u", "у"),
+    ("v", "в"),
+    ("w", "в"),
+    ("x", "х"),
+    ("y", "ы"),
+    ("z", "з"),
+    ("ž", "ж"),
+    ("\'", "ь"),
+    ("\"", "ъ"),
+]
+
+for find, replace in substitutions:
+    cyrillic_string = re.sub(find, replace, cyrillic_string)
+    
 # Properly replace J
 if uses_j == True:
     cyrillic_string = re.sub("i", "и", cyrillic_string)
@@ -52,121 +58,105 @@ else:
     # For now, just replace it with и until we get the proper code in
     cyrillic_string = re.sub("i", "и", cyrillic_string)
     
-
-# Check the Cyrillic transliteration for errors that break Russian orthography rules and fix them, e.g. цх ---> ч or йу ---> ю.
-
-cyrillic_string = re.sub("тс", "ц", cyrillic_string) # Fix ц.
-cyrillic_string = re.sub("цк", "тск", cyrillic_string) # Fix some common -тс- problems.
-cyrillic_string = re.sub("цх", "ч", cyrillic_string)
-cyrillic_string = re.sub("кх", "х", cyrillic_string)
-cyrillic_string = re.sub("сх", "ш", cyrillic_string)
-cyrillic_string = re.sub("зх", "ж", cyrillic_string)
-cyrillic_string = re.sub("шч", "щ", cyrillic_string) # Шч cannot occur in Russian orthography.
-
-cyrillic_string = re.sub("аы", "ай", cyrillic_string)
-cyrillic_string = re.sub("еы", "ей", cyrillic_string)
-cyrillic_string = re.sub("иы", "ий", cyrillic_string)
-cyrillic_string = re.sub("оы", "ой", cyrillic_string)
-cyrillic_string = re.sub("уы", "уй", cyrillic_string)
-cyrillic_string = re.sub("ыы", "ый", cyrillic_string) # Rather safe as -ыы never occurs at the end of words.
-cyrillic_string = re.sub("йу", "ю", cyrillic_string)
-cyrillic_string = re.sub("йа", "я", cyrillic_string)
-cyrillic_string = re.sub("ыу", "ю", cyrillic_string)
-cyrillic_string = re.sub("ыа", "я", cyrillic_string)
-
-cyrillic_string = re.sub("гаян", "гайан", cyrillic_string) # E.g. Гайана
-
-# йо actually occurs at the start a few words, e.g. йогурт, and in a few words like район or майор so that needs to be accounted for.
-
-cyrillic_string = re.sub("^ые", "е", cyrillic_string) # Only needs to activate at the beginning of words. -ые is actually quite a common grammatical ending.
-
-cyrillic_string = re.sub("йе", "е", cyrillic_string)
-
+corrections = [
+    ("тс", "ц"), # Fix ц.
+    ("цк", "тск"), # Fix some common -тс- problems.
+    ("цх", "ч"),
+    ("кх", "х"),
+    ("сх", "ш"),
+    ("зх", "ж"),
+    ("шч", "щ"), # Шч cannot occur in Russian orthography.
+    ("аы", "ай"),
+    ("еы", "ей"),
+    ("иы", "ий"),
+    ("оы", "ой"),
+    ("уы", "уй"),
+    ("ыы", "ый"), # Rather safe as -ыы never occurs at the end of words.
+    ("йу", "ю"),
+    ("йа", "я"),
+    ("ыу", "ю"),
+    ("ыа", "я"),
+    ("гаян", "гайан"), # E.g. Гайана
+    ("^ые", "е"), # Only needs to activate at the beginning of words. -ые is actually quite a common grammatical ending.
+    ("йе", "е"),
 # Corrects spelling of words like Йемен and Йеллоунайф, and others with йе.
-
-cyrillic_string = re.sub("егер", "йегер", cyrillic_string) # Name.
-cyrillic_string = re.sub("ейтелес", "йейтелес", cyrillic_string) # Name.
-cyrillic_string = re.sub("ейтс", "йейтс", cyrillic_string) # Name.
-cyrillic_string = re.sub("ейттелес", "йейттелес", cyrillic_string) # Name.
-cyrillic_string = re.sub("еллоу", "йеллоу", cyrillic_string)
-cyrillic_string = re.sub("емен", "йемен", cyrillic_string)
-cyrillic_string = re.sub("ен", "йен", cyrillic_string) # Alone, as a name.
-cyrillic_string = re.sub("енни", "йенни", cyrillic_string) # Name.
-cyrillic_string = re.sub("енс", "йенс", cyrillic_string) # Name.
-cyrillic_string = re.sub("еспер", "йеспер", cyrillic_string) # Name.
-cyrillic_string = re.sub("есс", "йесс", cyrillic_string) # As part of a name.
-
-cyrillic_string = re.sub("ыо", "йо", cyrillic_string)
-cyrillic_string = re.sub("йо", "ё", cyrillic_string)
-
+    ("егер", "йегер"), # Name.
+    ("ейтелес", "йейтелес"), # Name.
+    ("ейтс", "йейтс"), # Name.
+    ("ейттелес", "йейттелес"), # Name.
+    ("еллоу", "йеллоу"),
+    ("емен", "йемен"),
+    ("ен", "йен"), # Alone, as a name.
+    ("енни", "йенни"), # Name.
+    ("енс", "йенс"), # Name.
+    ("еспер", "йеспер"), # Name.
+    ("есс", "йесс"), # As part of a name.
+    ("ыо", "йо"),
+    ("йо", "ё"),
 # Corrects spelling of words when э should be used instead of е.
-
-cyrillic_string = re.sub("(^| )ето", "\\1это", cyrillic_string) # Words like лето mess this up, so it's only changed at the beginning.
-cyrillic_string = re.sub("(^| )ети", "\\1эти", cyrillic_string) # Same thing here.
-cyrillic_string = re.sub("ейнштейн", "эйнштейн", cyrillic_string) # Name.
-cyrillic_string = re.sub("еква", "эква", cyrillic_string) # e.g. экватор
-cyrillic_string = re.sub("експ", "эксп", cyrillic_string) # e.g. эксперт
-cyrillic_string = re.sub("(^| )екст", "\\1экст", cyrillic_string) # e.g. экстремизм
-cyrillic_string = re.sub("екзамен", "экзамен", cyrillic_string)
-cyrillic_string = re.sub("елаёпласт", "элайопласт", cyrillic_string)
-cyrillic_string = re.sub("електр", "электр", cyrillic_string) # e.g. электричество
-cyrillic_string = re.sub("елемент", "элемент", cyrillic_string)
-cyrillic_string = re.sub("енерг", "энерг", cyrillic_string) # E.g. энергия
-cyrillic_string = re.sub("ентроп", "энтроп", cyrillic_string) # E.g. энтропия
-cyrillic_string = re.sub("ерик", "эрик", cyrillic_string) # Name.
-cyrillic_string = re.sub("аеро", "аэро", cyrillic_string) # Prefix.
-cyrillic_string = re.sub("естони", "эстони", cyrillic_string) # E.g. Эстония
-cyrillic_string = re.sub("ефиопи", "эфиопи", cyrillic_string) # E.g. Эфиопия
-cyrillic_string = re.sub("етаж", "этаж", cyrillic_string)
-cyrillic_string = re.sub("економи", "экономи", cyrillic_string)
-cyrillic_string = re.sub("(^| )ерби", "\\1эрби", cyrillic_string) # e.g. эрбий.
-cyrillic_string = re.sub("еритр", "эритр", cyrillic_string) # e.g. Эритрея
-cyrillic_string = re.sub("етимология", "этимология", cyrillic_string)
-cyrillic_string = re.sub("едуард", "эдуард", cyrillic_string) # Name.
-cyrillic_string = re.sub("емили", "эмили", cyrillic_string) # Name, e.g. Эмлиля
-cyrillic_string = re.sub("реп", "рэп", cyrillic_string)
-
+    ("(^| )ето", "\\1это"), # Words like лето mess this up, so it's only changed at the beginning.
+    ("(^| )ети", "\\1эти"), # Same thing here.
+    ("ейнштейн", "эйнштейн"), # Name.
+    ("еква", "эква"), # e.g. экватор
+    ("експ", "эксп"), # e.g. эксперт
+    ("(^| )екст", "\\1экст"), # e.g. экстремизм
+    ("екзамен", "экзамен"),
+    ("елаёпласт", "элайопласт"),
+    ("електр", "электр"), # e.g. электричество
+    ("елемент", "элемент"),
+    ("енерг", "энерг"), # E.g. энергия
+    ("ентроп", "энтроп"), # E.g. энтропия
+    ("ерик", "эрик"), # Name.
+    ("аеро", "аэро"), # Prefix.
+    ("естони", "эстони"), # E.g. Эстония
+    ("ефиопи", "эфиопи"), # E.g. Эфиопия
+    ("етаж", "этаж"),
+    ("економи", "экономи"),
+    ("(^| )ерби", "\\1эрби"), # e.g. эрбий.
+    ("еритр", "эритр"), # e.g. Эритрея
+    ("етимология", "этимология"),
+    ("едуард", "эдуард"), # Name.
+    ("емили", "эмили"), # Name, e.g. Эмлиля
+    ("реп", "рэп"),
 # э will never appear after ь/ъ. The correct letter is "e".
-
-cyrillic_string = re.sub("([ьъ])э", "\\1e", cyrillic_string)
-
+    ("([ьъ])э", "\\1e"),
 # Corrects spelling of words like район, майор, and cases with йо.
-
-cyrillic_string = re.sub("аёва", "айова", cyrillic_string) # Geographical name.
-cyrillic_string = re.sub("баёнет", "байонет", cyrillic_string)
-cyrillic_string = re.sub("ваёминг", "вайоминг", cyrillic_string) # Geographical name.
-cyrillic_string = re.sub("ваёл", "вайол", cyrillic_string) # E.g. вайола
-cyrillic_string = re.sub("заён", "зайон", cyrillic_string)
-cyrillic_string = re.sub("коёт", "койот", cyrillic_string)
-cyrillic_string = re.sub("маёнез", "майонез", cyrillic_string)
-cyrillic_string = re.sub("маёр", "майор", cyrillic_string)
-cyrillic_string = re.sub("маётта", "майотта", cyrillic_string) # Geographical name.
-cyrillic_string = re.sub("огаё", "огайо", cyrillic_string) # Geographical name.
-cyrillic_string = re.sub("ораён", "орайон", cyrillic_string)
-cyrillic_string = re.sub("паёл", "пайол", cyrillic_string)
-cyrillic_string = re.sub("раён", "район", cyrillic_string)
-cyrillic_string = re.sub("тоёта", "тойота", cyrillic_string)
-
+    ("аёва", "айова"), # Geographical name.
+    ("баёнет", "байонет"),
+    ("ваёминг", "вайоминг"), # Geographical name.
+    ("ваёл", "вайол"), # E.g. вайола
+    ("заён", "зайон"),
+    ("коёт", "койот"),
+    ("маёнез", "майонез"),
+    ("маёр", "майор"),
+    ("маётта", "майотта"), # Geographical name.
+    ("огаё", "огайо"), # Geographical name.
+    ("ораён", "орайон"),
+    ("паёл", "пайол"),
+    ("раён", "район"),
+    ("тоёта", "тойота"),
 # More instances of -йо- in a word here
+    ("(^| )ёг", "\\1йог"), # At the beginning of words, e.g. йогa, йогурт. The only exceptions are minor geographical names.
+    ("(^| )ёд", "\\1йод"), # As a word, not as a part of a word. мёд is an actual word, for example.
+    ("ёжеф", "йожеф"), # Name.
+    ("ёзеф", "йозеф"), # Name.
+    ("ёрг", "йорг"), # Part of some common names. Some words start with ёрг, but they are all minor geographical names.
+    ("ёрдан", "йордан"), # Name.
+    ("(^| )ёрк", "\\1йорк"), # Alone, e.g. Нью Йорк. Used in a lot of words, e.g. шестёрка.
+    ("ёсеф", "йосеф"), # Name.
+    ("ёсиф", "йосиф"), # Name.
+    ("ёта", "йота"), # Name of the Greek letter iota. Also common in words.
+    ("ёун", "йоун"), # Name.
+    ("ёхан", "йохан"), # Name.
+    ("ёшкар", "йошкар"), # Part of a name of a city in Russia, Йошкар-Ола.
+    ("ёшуа", "йошуа"), # Name.
+    ("ёэ", "йоэ"), # Probably part of a name, since ёэ can never occur.
+    ("ево", "его"), # Only needs to activate at the end of words.
+    ("ово", "ого"), # Only needs to activate at the end of words.
+    ]
 
-cyrillic_string = re.sub("(^| )ёг", "\\1йог", cyrillic_string) # At the beginning of words, e.g. йогa, йогурт. The only exceptions are minor geographical names.
-cyrillic_string = re.sub("(^| )ёд", "\\1йод", cyrillic_string) # As a word, not as a part of a word. мёд is an actual word, for example.
-cyrillic_string = re.sub("ёжеф", "йожеф", cyrillic_string) # Name.
-cyrillic_string = re.sub("ёзеф", "йозеф", cyrillic_string) # Name.
-cyrillic_string = re.sub("ёрг", "йорг", cyrillic_string) # Part of some common names. Some words start with ёрг, but they are all minor geographical names.
-cyrillic_string = re.sub("ёрдан", "йордан", cyrillic_string) # Name.
-cyrillic_string = re.sub("(^| )ёрк", "\\1йорк", cyrillic_string) # Alone, e.g. Нью Йорк. Used in a lot of words, e.g. шестёрка.
-cyrillic_string = re.sub("ёсеф", "йосеф", cyrillic_string) # Name.
-cyrillic_string = re.sub("ёсиф", "йосиф", cyrillic_string) # Name.
-cyrillic_string = re.sub("ёта", "йота", cyrillic_string) # Name of the Greek letter iota. Also common in words.
-cyrillic_string = re.sub("ёун", "йоун", cyrillic_string) # Name.
-cyrillic_string = re.sub("ёхан", "йохан", cyrillic_string) # Name.
-cyrillic_string = re.sub("ёшкар", "йошкар", cyrillic_string) # Part of a name of a city in Russia, Йошкар-Ола.
-cyrillic_string = re.sub("ёшуа", "йошуа", cyrillic_string) # Name.
-cyrillic_string = re.sub("ёэ", "йоэ", cyrillic_string) # Probably part of a name, since ёэ can never occur.
-
-cyrillic_string = re.sub("ево", "его", cyrillic_string) # Only needs to activate at the end of words.
-cyrillic_string = re.sub("ово", "ого", cyrillic_string) # Only needs to activate at the end of words.
+for find, replace in corrections:
+    cyrillic_string = re.sub(find, replace, cyrillic_string)
 
 if uses_j == False:
     # Ask user in vowel + и combinations which ones are really й.
