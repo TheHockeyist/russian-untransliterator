@@ -66,16 +66,9 @@ corrections = [
     ("сх", "ш"),
     ("зх", "ж"),
     ("шч", "щ"), # Шч cannot occur in Russian orthography.
-    ("аы", "ай"),
-    ("еы", "ей"),
-    ("иы", "ий"),
-    ("оы", "ой"),
-    ("уы", "уй"),
-    ("ыы", "ый"), # Rather safe as -ыы never occurs at the end of words.
-    ("йу", "ю"),
-    ("йа", "я"),
-    ("ыу", "ю"),
-    ("ыа", "я"),
+    ("([аеиоуы])ы", "\\1й"), # Rather safe as -ыы never occurs at the end of words.
+    ("[ый]у", "ю"),
+    ("[ый]а", "я"),
     ("гаян", "гайан"), # E.g. Гайана
     ("(^| )ые", "\\1е"), # Only needs to activate at the beginning of words. -ые is actually quite a common grammatical ending.
     ("йе", "е"),
@@ -91,8 +84,7 @@ corrections = [
     ("енс", "йенс"), # Name.
     ("еспер", "йеспер"), # Name.
     ("есс", "йесс"), # As part of a name.
-    ("ыо", "йо"),
-    ("йо", "ё"),
+    ("[ый]о", "ё"),
 # Corrects spelling of words when э should be used instead of е.
     ("(^| )ето", "\\1это"), # Words like лето mess this up, so it's only changed at the beginning.
     ("(^| )ети", "\\1эти"), # Same thing here.
