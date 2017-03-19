@@ -77,7 +77,7 @@ corrections = [
     ("ыу", "ю"),
     ("ыа", "я"),
     ("гаян", "гайан"), # E.g. Гайана
-    ("^ые", "е"), # Only needs to activate at the beginning of words. -ые is actually quite a common grammatical ending.
+    ("(^| )ые", "\\1е"), # Only needs to activate at the beginning of words. -ые is actually quite a common grammatical ending.
     ("йе", "е"),
 # Corrects spelling of words like Йемен and Йеллоунайф, and others with йе.
     ("егер", "йегер"), # Name.
