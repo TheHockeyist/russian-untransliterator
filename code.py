@@ -56,7 +56,6 @@ if uses_j == True:
     cyrillic_string = re.sub("j", "й", cyrillic_string)
 else:
     # Ask user in vowel + и combinations which ones are really й.
-    cyrillic_string = re.sub("j", "и", cyrillic_string) # As a placeholder, just replace it with и Um... there are no j's to replace?
     pass # Placeholder
     
 corrections = [
