@@ -51,12 +51,14 @@ for find, replace in substitutions:
     cyrillic_string = re.sub(find, replace, cyrillic_string)
     
 # Properly replace J
+cyrillic_string = re.sub("i", "и", cyrillic_string)
+# Properly replace J
 if uses_j == True:
-    cyrillic_string = re.sub("i", "и", cyrillic_string)
     cyrillic_string = re.sub("j", "й", cyrillic_string)
 else:
-    # For now, just replace it with и until we get the proper code in
-    cyrillic_string = re.sub("i", "и", cyrillic_string)
+    # Ask user in vowel + и combinations which ones are really й.
+    cyrillic_string = re.sub("j", "и", cyrillic_string) # As a placeholder, just replace it with и
+    pass # Placeholder
     
 corrections = [
     ("тс", "ц"), # Fix ц.
