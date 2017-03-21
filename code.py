@@ -150,5 +150,6 @@ for find, replace in corrections:
     cyrillic_string = re.sub(find, replace, cyrillic_string)
 
 # TODO: Check if any i/j conflicts need to be resolved
+# I know that a common one is moi, which can go either way if there are no j's...
 
 print("\"{}\" would be transliterated as:\n{}".format(latin_string, cyrillic_string))
