@@ -89,6 +89,7 @@ corrections = [
 # Corrects spelling of words when э should be used instead of е.
     ("(^| )ето", "\\1это"), # Words like лето mess this up, so it's only changed at the beginning.
     ("(^| )ети", "\\1эти"), # Same thing here.
+    ("едмонтон", "эдмонтон"), # Geographical name.
     ("ейнштейн", "эйнштейн"), # Name.
     ("еква", "эква"), # e.g. экватор
     ("експ", "эксп"), # e.g. эксперт
