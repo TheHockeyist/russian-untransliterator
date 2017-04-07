@@ -1,5 +1,7 @@
 # Pre-Alpha Release?
 
+#To-do: эти/йети problem.
+
 import re
 
 # Ask user for string to be transliterated to Cyrillic, including soft and hard signs.
