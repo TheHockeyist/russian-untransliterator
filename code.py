@@ -86,7 +86,7 @@ corrections = [
     ("(^| )ен", "\\1йен"), # Alone, as a name.
     ("енни", "йенни"), # Name.
     ("енс", "йенс"), # Name.
-    ("(^| )ети", "\\1йети"), # Monster from Nepal.
+    ("(^| )ети", "\\1йети"), # Monster from Nepal. # Needs to be distinguished from эти.
     ("еспер", "йеспер"), # Name.
     ("есс", "йесс"), # As part of a name.
     ("[ый]о", "ё"),
