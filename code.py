@@ -1,7 +1,5 @@
 # Pre-Alpha Release?
 
-#To-do: эти/йети problem.
-
 import re
 
 # Ask user for string to be transliterated to Cyrillic, including soft and hard signs.
@@ -75,7 +73,10 @@ corrections = [
     ("[ый]а", "я"),
     ("гаян", "гайан"), # E.g. Гайана
     ("(^| )ые", "\\1е"), # Only needs to activate at the beginning of words. -ые is actually quite a common grammatical ending.
+    ("ыети", "иети"), # Workaround for эти/йети problem as both would go to ети otherwise.
+    ("йети", "иети"),
     ("йе", "е"),
+    ("иети", "йети"),
 # Corrects spelling of words like Йемен and Йеллоунайф, and others with йе.
     ("егер", "йегер"), # Name.
     ("ейтелес", "йейтелес"), # Name.
@@ -86,7 +87,6 @@ corrections = [
     ("(^| )ен", "\\1йен"), # Alone, as a name.
     ("енни", "йенни"), # Name.
     ("енс", "йенс"), # Name.
-    ("(^| )ети", "\\1йети"), # Monster from Nepal. # Needs to be distinguished from эти.
     ("еспер", "йеспер"), # Name.
     ("есс", "йесс"), # As part of a name.
     ("[ый]о", "ё"),
